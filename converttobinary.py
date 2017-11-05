@@ -25,18 +25,19 @@ def get_BinaryImage(srcImage):
 
     edge_temp = edge
     for i in range(0,1):
-        edge = cv.dilate(edge_temp, edge, element) #팽창
+       # edge = cv.dilate(edge_temp, edge, element) #팽창
         edge_temp = edge
 
-    for i in range(0, 1):
-        # fillHole() edge 테두리(색상 흰색) 안의 범위를 하얗게 칠한다.
-        edge_temp = edge
+    #for i in range(0, 1):
+        #fillHole(edge_temp, edge) #edge 테두리(색상 흰색) 안의 범위를 하얗게 칠한다.
+       # edge_temp = edge
 
-    th, dst = cv.threshold(edge_temp, 150, 255, cv.THRESH_BINARY, edge)
-    Dst = np.zeros(edge.size) # edge 크기의 빈 배열 생성인데... 잘못된 것 같다.
+   # th, dst = cv.threshold(edge_temp, 150, 255, cv.THRESH_BINARY, edge)
+    #Dst = np.zeros(edge.size) # edge 크기의 빈 배열 생성인데... 잘못된 것 같다.
 
-
-    return Dst  # numpy 배열 반환, numpy 배열은 이미지로 표현될 수 있다.
+    ret, edge = cv.threshold(srcImage, 0, 255, cv.THRESH_BINARY_INV) # thread hold 모드 INV: 색 반전
+    # 이미지 색반전을 꼭 해야할 필요가 없다면 기존에 있는 Grabcut 등 다른 이미지 처리 방법을 적용하는 것도 좋아보임
+    return edge  # numpy 배열 반환, numpy 배열은 이미지로 표현될 수 있다.
 
 
 # 신체 이미지 부분을 색칠하는 함수
@@ -47,8 +48,6 @@ def fillHole(srcBw, dstBw):
     Temp = copy.copy(srcBw)
 
     cv.floodFill(Temp, (0,0), 255)
-
-
 
 def RemoveSmallRegion(Src, Dst, AreaLimit, CheckMode, NeighborMode):
     RemoveCount = 0
