@@ -7,8 +7,9 @@ import math
 import copy
 
 def get_BinaryImage(srcImage):
-    # 이미지 색상 흑백 변환
+    # [1]이미지 색상 흑백 변환
     srcImage_Gray = cv.cvtColor(srcImage, cv.COLOR_BGRA2GRAY)
+    print("|--- in get_BinaryImage ---------|")
 
     # 가우시안 블러 처리
     srcImage_Gray_Gauss = cv.GaussianBlur(srcImage_Gray,(3, 3), 0)
@@ -34,6 +35,7 @@ def get_BinaryImage(srcImage):
     th, dst = cv.threshold(edge_temp, 150, 255, cv.THRESH_BINARY, edge)
     Dst = np.zeros(edge.size) # edge 크기의 빈 배열 생성인데... 잘못된 것 같다.
 
+
     return Dst  # numpy 배열 반환, numpy 배열은 이미지로 표현될 수 있다.
 
 
@@ -46,8 +48,12 @@ def fillHole(srcBw, dstBw):
 
     cv.floodFill(Temp, (0,0), 255)
 
+
+
 def RemoveSmallRegion(Src, Dst, AreaLimit, CheckMode, NeighborMode):
     RemoveCount = 0
 
     Pointlabel = np.zeros(np.size(Src), cv.CV_8UC1)
+
+
 
