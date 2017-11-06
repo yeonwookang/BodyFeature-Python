@@ -11,7 +11,6 @@ import numpy as np
 
 
 class bodyp:
-
     my_hand=0
 
 def GetBodyPosition(Dst):
@@ -25,11 +24,13 @@ def GetBodyPosition(Dst):
     print("|--- 손에 대한 알고리즘 입니다. ---------|")
 
     hand_tmp=h.GetHand(Dst)
-    hand_left_tmp=h.GetLeftHand(Dst)
-    my_hand=hand_left_tmp
-
+    my_hand=hand_tmp
 
     return my_hand
+
+
+
+
 
 
 
