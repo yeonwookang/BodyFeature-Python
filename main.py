@@ -15,6 +15,7 @@ ImageName = "1_front.png" # 이미지 파일 이름
 srcImage = imread(ImageName) # 이미지 파일 이름을 이용해 이미지를 가져온다. (같은 디렉토리 내에 위치 해있어야 함.)
 
 Dst = ctb.get_BinaryImage(srcImage)
+
 print srcImage.dtype, srcImage.shape, srcImage.size # 3차원 배열로 나옴
 print Dst.dtype, Dst.shape, Dst.size
 
@@ -30,15 +31,12 @@ pp=bp.GetBodyPosition(srcImage)
 
 #손의 대한 내용을 출력한다.
 print("|---Print Hand--------|")
-print(pp.x)
-print(pp.y)
+
 # print(pp.left_hand)
 
-img = cv.circle(srcImage,(pp.x,pp.y),10,(0,0,255),-1)
+img = cv.line(srcImage,(pp.left_hand.x,pp.left_hand.y),(pp.rignt_hand.x,pp.rignt_hand.y ),(255,0,0),5)
 
 # print(pp.my_hand.my_right_hand)
-
-
 
 # 이미지 보이기
 cv.imshow('BodyFeature-Origin', srcImage) # 원본 이미지
