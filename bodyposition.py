@@ -1,6 +1,7 @@
 # coding=utf-8
 
 import hand as h
+import front_height as fh
 from collections import namedtuple
 import numpy as np
 
@@ -12,6 +13,7 @@ import numpy as np
 
 class bodyp:
     my_hand=0
+    my_height=0
 
 def GetBodyPosition(Dst):
 
@@ -27,6 +29,13 @@ def GetBodyPosition(Dst):
     my_hand=hand_tmp
 
     return my_hand
+
+def GetBodyPosition2(Dst):
+    print("|--- 키에 대한 알고리즘 입니다. ---------|")
+    height_tmp=fh.GetHeight(Dst)
+    my_height=height_tmp
+
+    return my_height
 
 
 
