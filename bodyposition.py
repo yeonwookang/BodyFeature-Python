@@ -1,45 +1,29 @@
 # coding=utf-8
+# 신체 특정점을 구하는 메소드들을 가진 클래스
 
 import hand as h
-import front_height as fh
-from collections import namedtuple
-import numpy as np
+import frontheight as fh
 
-#몸을 담는 튜플 혹은 클래스 제작이 필요함
-#임의로 일단 namedTupel을 이용하여 저장하겠음-> 손만 들어 있을 예정
+# 키 - 구해진 contour의 최고점 y, 최저점 y를 구한다.
+# 키는 사용자로부터 입력 받아 cm당 픽셀수를 구하기 위해 사용
 
-#bodyp = namedtuple("bodyp", "my_hand")
+# cm당 픽셀 수를 구하는 메소드
 
+# 손 위치를 구하는 메소드
+def getHandPoints(pcimage):
+    print("------Get HandPosition------")
 
-class bodyp:
-    my_hand=0
-    my_height=0
+    hand_tmp = h.getHand(pcimage)
+    myhand = hand_tmp
 
-def GetBodyPosition(Dst):
+    return myhand
 
-    #아직 해당 인자가 어디서 사용되는지 파악을 하지 못했음
-    # rowNumber=Dst.rows
-    # colNumber=Dst.cols
+# 머리와 발끝을 구하는 메소드
+def getFrontHeightPoints(pcimage):
+    print("------Get FrontHeight------")
 
-    print("|--- in GetBodyPosition ---------|")
-    # hand_tmp=h.hand
-    print("|--- 손에 대한 알고리즘 입니다. ---------|")
+    frontheight_tmp = fh.getFrontHeight(pcimage)
+    myfrontheight = frontheight_tmp
 
-    hand_tmp=h.GetHand(Dst)
-    my_hand=hand_tmp
-
-    return my_hand
-
-def GetBodyPosition2(Dst):
-    print("|--- 키에 대한 알고리즘 입니다. ---------|")
-    height_tmp=fh.GetHeight(Dst)
-    my_height=height_tmp
-
-    return my_height
-
-
-
-
-
-
+    return myfrontheight
 
