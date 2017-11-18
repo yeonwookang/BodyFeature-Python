@@ -32,20 +32,15 @@ def getFrontHeight(pcImage):
         outImage = copy.copy(pcImage)  # 객체 복사하기
         rowNumber = 700L
         colNumber = 525L
-
-        # 튜플에 해당 값을 삽입
-
         col_start = 0
         col_end = colNumber - 1
-        row_start = 0
-        row_end = rowNumber - 1
 
         # 머리
         head = front_head(0, 0)
         # 인체의 흑백 차트를 찾는다.
         for i in range(0,rowNumber):
+            data_head = outImage[i]
             for j in range(col_start, col_end):
-                data_head = outImage[i]
                 if np.any(data_head[j]==[0, 255, 0]):  # 초록색 점에 닿으면
                     head.x = j
                     head.y = i
@@ -56,8 +51,8 @@ def getFrontHeight(pcImage):
 
         foot = front_foot(0, 0)
         for k in range(rowNumber-1, 0, -1):
+            data_foot = outImage[k]
             for l in range(col_start, col_end):
-                data_foot = outImage[k]
                 if np.any(data_foot[l]==[0, 255, 0]):  # 초록색 점에 닿으면
                     foot.x = l
                     foot.y = k
