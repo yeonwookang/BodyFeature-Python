@@ -3,6 +3,7 @@
 
 import hand as h
 import frontheight as fh
+import middlepoint as mp
 
 # 키 - 구해진 contour의 최고점 y, 최저점 y를 구한다.
 # 키는 사용자로부터 입력 받아 cm당 픽셀수를 구하기 위해 사용
@@ -26,4 +27,14 @@ def getFrontHeightPoints(pcimage):
     myfrontheight = frontheight_tmp
 
     return myfrontheight
+
+# 중간점을 구하는 메소드
+def getMiddlePoint(pcimage):
+    print("------Get MiddlePoint------")
+
+    middlepoint_tmp = mp.getMiddlePoint(pcimage)
+    mymiddlepoint = middlepoint_tmp
+
+    return mymiddlepoint
+
 

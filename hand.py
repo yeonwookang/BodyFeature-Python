@@ -37,8 +37,6 @@ def getHand(pcImage):
         # 튜플에 해당 값을 삽입
 
         row_start = 0
-        row_end = 0
-        row_start = 0
         row_end = rowNumber - 1
 
         # 왼쪽손
@@ -47,7 +45,6 @@ def getHand(pcImage):
         for i in range(0, colNumber):
             for j in range(row_start, row_end):
                 data_left = outImage[j]  # 주소를 얻는 것이라고 하는데 ... 공부를 해봐야할 것같음
-                #print "left: ", data_left[i]
                 if np.any(data_left[i]==[0, 255, 0]): # 초록색 점에 닿으면
                     left.x = i
                     left.y = j
@@ -59,7 +56,6 @@ def getHand(pcImage):
         for k in range(colNumber -1, 0, -1):
             for l in range(row_start, row_end):
                 data_right = outImage[l]
-                # print "right: ", data_right[k]
                 if np.any(data_right[k]==[0, 255, 0]):  # 초록색 점에 닿으면
                     right.x = k
                     right.y = l
