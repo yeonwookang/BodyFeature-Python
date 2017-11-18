@@ -1,6 +1,12 @@
 # coding=utf-8
 # Main class
 
+#
+# 2017.11.18(토)
+# 연우
+# 마우스 드래그로 cm 구하기
+# 
+
 import cv2
 import bodycontour as bc # 윤곽선을 구하는 기능
 import bodyposition as bp # 신체의 특정점들을 가져오는 기능
