@@ -1,7 +1,6 @@
 # coding=utf-8
 # 머리점, 발끝점을 구하는 메소드
 
-import cv2 as cv
 import numpy as np
 import copy
 

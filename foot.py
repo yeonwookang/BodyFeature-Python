@@ -1,7 +1,6 @@
 # coding=utf-8
 # 양쪽 발끝을 찾는 클래스
 
-import cv2
 import numpy as np
 import copy
 
@@ -17,7 +16,7 @@ class right_feet:
         self.x = x
         self.y = y
 
-# 중간점 포인트 - 양쪽 발 끝의 포인트 객체를 가짐
+# 발 좌표 (양쪽 발 끝 객체를 가짐)
 class footpoints:
     left_feet = left_feet(0,0)
     right_feet = right_feet(0,0)
@@ -38,7 +37,7 @@ def getFootPoints(pcImage, frontheight_points, hand_points):
     rowNumber = 700L
     colNumber = 525L
 
-    # 탐색 범위
+    # 탐색 범위 (왼쪽)
     row_start = hand.left_hand.y
     row_end = frontheight.front_foot.y
     col_start = hand.left_hand.x
@@ -57,7 +56,7 @@ def getFootPoints(pcImage, frontheight_points, hand_points):
         if left.y > 0:
             break
 
-    # 탐색 범위
+    # 탐색 범위 (오른쪽)
     row_start = hand.right_hand.y
     row_end = frontheight.front_foot.y
     col_start = frontheight.front_head.x
