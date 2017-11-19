@@ -1,7 +1,6 @@
 # coding=utf-8
 # 손 클래스
 
-import cv2
 import numpy as np
 import copy
 
@@ -18,7 +17,6 @@ class right_hand:
         self.y = y
 
 # 손끝의 지문 좌표 (왼손과 오른손 객체를 가진다.)
-
 class hand:
     left_hand=left_hand(0,0)
     right_hand=right_hand(0,0)
@@ -35,7 +33,6 @@ def getHand(pcImage):
         colNumber = 525L
 
         # 튜플에 해당 값을 삽입
-
         row_start = 0
         row_end = rowNumber - 1
 

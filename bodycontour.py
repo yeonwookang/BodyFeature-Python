@@ -33,6 +33,6 @@ def getProcessedImage(srcImage):
     im2, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     # 흑백처리한 이미지 위에 외곽선을 그려봄
     processedImage = cv2.drawContours(image, contours, -1, (0, 255, 0), 1)
-    # 처리된 이미지는 processedImage에 저장하여 반환
 
+    # 처리된 이미지는 processedImage에 저장하여 반환
     return processedImage
