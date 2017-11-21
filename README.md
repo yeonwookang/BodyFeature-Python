@@ -23,6 +23,10 @@ DSWU Computer Science FYP
 <li>기존 연우언니 코드에서 처리되는 초록색 컨투어 값을 이용하여 [(예시)if (data[middlepoint1.x - j] == 255)]값을 처리해볼 생각임</li>
 <li>c++코드에서 if 배경일경우~를 처리하는 부분은 "if 컨투어 값 이외의 값을 입력받으면~" 이라는 식으로 진행해볼 예정</li>
 
+-문제 발생:
+ <li>c++과 파이썬에서 break에 대한 처리가 다른 것같음</li>
+ <li>c++의 경우 중첩 반복문 내에서 break가 있을 경우 break문이 포함된 for문을 중단시키는 반면에 파이썬은 아예 모든 반복문을 중지시킴</li>
+
 -오류 사진
 ![image](https://user-images.githubusercontent.com/26568793/32992016-fd9df098-cd88-11e7-8c89-717804c6d4b0.png)
 ![image](https://user-images.githubusercontent.com/26568793/32992045-2e0c0be8-cd89-11e7-9be9-8c4d876f28fa.png)
